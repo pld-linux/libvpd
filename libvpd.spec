@@ -27,6 +27,7 @@ Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libvpd
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	sqlite3-devel >= 3
+Obsoletes:	lsvpd-devel
 
 %description devel
 Header files for libvpd library.
@@ -39,6 +40,7 @@ Summary:	Static libvpd library
 Summary(pl.UTF-8):	Statyczna biblioteka libvpd
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
+Obsoletes:	lsvpd-static
 
 %description static
 Static libvpd library.
