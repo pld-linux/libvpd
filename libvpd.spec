@@ -7,6 +7,7 @@ License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://downloads.sourceforge.net/linux-diag/%{name}-%{version}.tar.gz
 # Source0-md5:	d4e66ec416eac3a87c790cbdc1c628f4
+Patch0:		%{name}-pc.patch
 URL:		http://linux-diag.sourceforge.net/Lsvpd.html
 BuildRequires:	libstdc++-devel
 BuildRequires:	sqlite3-devel >= 3
@@ -84,6 +85,7 @@ Statyczna biblioteka libvpd_cxx.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %configure
