@@ -1,16 +1,19 @@
 Summary:	Library for access to VPD database
 Summary(pl.UTF-8):	Biblioteka dostępu do bazy danych VPD
 Name:		libvpd
-Version:	2.1.2
+Version:	2.1.3
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://downloads.sourceforge.net/linux-diag/%{name}-%{version}.tar.gz
-# Source0-md5:	d4e66ec416eac3a87c790cbdc1c628f4
+# Source0-md5:	e73fcf739dd0275f4793fc52394fe6cb
 Patch0:		%{name}-pc.patch
 Patch1:		%{name}-nolink.patch
 URL:		http://linux-diag.sourceforge.net/Lsvpd.html
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	libstdc++-devel
+BuildRequires:	libtool
 BuildRequires:	sqlite3-devel >= 3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -92,6 +95,11 @@ Statyczna biblioteka libvpd_cxx.
 %patch1 -p1
 
 %build
+%{__libtoolize}
+%{__aclocal}
+%{__autoconf}
+%{__autoheader}
+%{__automake}
 %configure
 %{__make}
 
@@ -117,7 +125,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS NEWS README
 %attr(755,root,root) %{_libdir}/libvpd-2.1.so.*.*.*
-%ghost %{_libdir}/libvpd-2.1.so.0
+%ghost %{_libdir}/libvpd-2.1.so.2
 
 %files devel
 %defattr(644,root,root,755)
@@ -133,7 +141,7 @@ rm -rf $RPM_BUILD_ROOT
 %files cxx
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libvpd_cxx-2.1.so.*.*.*
-%ghost %{_libdir}/libvpd_cxx-2.1.so.0
+%ghost %{_libdir}/libvpd_cxx-2.1.so.2
 
 %files cxx-devel
 %defattr(644,root,root,755)
