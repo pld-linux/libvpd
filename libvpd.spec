@@ -9,6 +9,7 @@ Source0:	http://downloads.sourceforge.net/linux-diag/%{name}-%{version}.tar.gz
 # Source0-md5:	1d08639c2fe1878e9c685cbc2e344f7f
 Patch0:		%{name}-pc.patch
 Patch1:		%{name}-nolink.patch
+Patch2:		%{name}-include.patch
 URL:		http://linux-diag.sourceforge.net/Lsvpd.html
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -93,6 +94,7 @@ Statyczna biblioteka libvpd_cxx.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 %{__libtoolize}
