@@ -1,12 +1,12 @@
 Summary:	Library for access to VPD database
 Summary(pl.UTF-8):	Biblioteka dostępu do bazy danych VPD
 Name:		libvpd
-Version:	2.1.3
+Version:	2.2.1
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://downloads.sourceforge.net/linux-diag/%{name}-%{version}.tar.gz
-# Source0-md5:	e73fcf739dd0275f4793fc52394fe6cb
+# Source0-md5:	1d08639c2fe1878e9c685cbc2e344f7f
 Patch0:		%{name}-pc.patch
 Patch1:		%{name}-nolink.patch
 URL:		http://linux-diag.sourceforge.net/Lsvpd.html
@@ -124,8 +124,8 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS NEWS README
-%attr(755,root,root) %{_libdir}/libvpd-2.1.so.*.*.*
-%ghost %{_libdir}/libvpd-2.1.so.2
+%attr(755,root,root) %{_libdir}/libvpd-2.2.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libvpd-2.2.so.2
 
 %files devel
 %defattr(644,root,root,755)
@@ -140,8 +140,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files cxx
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libvpd_cxx-2.1.so.*.*.*
-%ghost %{_libdir}/libvpd_cxx-2.1.so.2
+%attr(755,root,root) %{_libdir}/libvpd_cxx-2.2.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libvpd_cxx-2.2.so.2
 
 %files cxx-devel
 %defattr(644,root,root,755)
