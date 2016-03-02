@@ -1,14 +1,13 @@
 Summary:	Library for access to VPD database
 Summary(pl.UTF-8):	Biblioteka dostępu do bazy danych VPD
 Name:		libvpd
-Version:	2.2.4
+Version:	2.2.5
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://downloads.sourceforge.net/linux-diag/%{name}-%{version}.tar.gz
-# Source0-md5:	9b25157b0a6043be7ad9c6c91437855a
+# Source0-md5:	dc5e3e7aba259ecd15c5ef9ad6ceba06
 Patch0:		%{name}-pc.patch
-Patch1:		%{name}-nolink.patch
 URL:		http://linux-diag.sourceforge.net/Lsvpd.html
 BuildRequires:	autoconf >= 2.69
 BuildRequires:	automake
@@ -92,7 +91,6 @@ Statyczna biblioteka libvpd_cxx.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 %{__libtoolize}
