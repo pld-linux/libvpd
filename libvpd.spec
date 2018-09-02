@@ -1,12 +1,12 @@
 Summary:	Library for access to VPD database
 Summary(pl.UTF-8):	Biblioteka dostępu do bazy danych VPD
 Name:		libvpd
-Version:	2.2.5
+Version:	2.2.6
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://downloads.sourceforge.net/linux-diag/%{name}-%{version}.tar.gz
-# Source0-md5:	dc5e3e7aba259ecd15c5ef9ad6ceba06
+# Source0-md5:	8760418942fac7e3a24770d423e0cd72
 Patch0:		%{name}-pc.patch
 URL:		http://linux-diag.sourceforge.net/Lsvpd.html
 BuildRequires:	autoconf >= 2.69
@@ -109,6 +109,8 @@ rm -rf $RPM_BUILD_ROOT
 
 # obsoleted by pkgconfig
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/libvpd*.la
+# belongs to lsvpd (rule to trigger running /usr/sbin/vpdupdate)
+%{__rm} $RPM_BUILD_ROOT/etc/udev/rules.d/90-vpdupdate.rules
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -124,10 +126,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog README
 %attr(755,root,root) %{_libdir}/libvpd-2.2.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libvpd-2.2.so.2
-
-# should go to lsvpd
-#/etc/udev/rules.d/90-vpdupdate.rules -> /lib/udev/rules.d/
-#%verify(not mtime) /var/lib/lsvpd/run.vpdupdate
 
 %files devel
 %defattr(644,root,root,755)
