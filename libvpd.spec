@@ -1,14 +1,15 @@
 Summary:	Library for access to VPD database
 Summary(pl.UTF-8):	Biblioteka dostępu do bazy danych VPD
 Name:		libvpd
-Version:	2.2.6
+Version:	2.2.9
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
-Source0:	http://downloads.sourceforge.net/linux-diag/%{name}-%{version}.tar.gz
-# Source0-md5:	8760418942fac7e3a24770d423e0cd72
+#Source0Download: https://github.com/power-ras/libvpd/tags
+Source0:	https://github.com/power-ras/libvpd/archive/v%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	cfcd5ab91b1e78fe409f940797e6d4f6
 Patch0:		%{name}-pc.patch
-URL:		http://linux-diag.sourceforge.net/Lsvpd.html
+URL:		https://github.com/power-ras/libvpd
 BuildRequires:	autoconf >= 2.69
 BuildRequires:	automake
 BuildRequires:	libstdc++-devel
@@ -30,7 +31,7 @@ Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libvpd
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	sqlite3-devel >= 3
-Obsoletes:	lsvpd-devel
+Obsoletes:	lsvpd-devel < 1.6
 
 %description devel
 Header files for libvpd library.
@@ -43,7 +44,7 @@ Summary:	Static libvpd library
 Summary(pl.UTF-8):	Statyczna biblioteka libvpd
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
-Obsoletes:	lsvpd-static
+Obsoletes:	lsvpd-static < 1.6
 
 %description static
 Static libvpd library.
@@ -125,7 +126,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README
 %attr(755,root,root) %{_libdir}/libvpd-2.2.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libvpd-2.2.so.2
+%attr(755,root,root) %ghost %{_libdir}/libvpd-2.2.so.3
 
 %files devel
 %defattr(644,root,root,755)
@@ -141,7 +142,7 @@ rm -rf $RPM_BUILD_ROOT
 %files cxx
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libvpd_cxx-2.2.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libvpd_cxx-2.2.so.2
+%attr(755,root,root) %ghost %{_libdir}/libvpd_cxx-2.2.so.3
 
 %files cxx-devel
 %defattr(644,root,root,755)
